@@ -31,16 +31,20 @@ loveCount.innerText=loveCountNumber
 
     if (e.target.className.includes('call-btn')) {
         // coin subtract feature 
+       let getCoin=getElement('coin-number') ;
+    let getCoinNumber=parseInt(getCoin.innerText) ;
     let title=e.target.parentNode.parentNode.children[1].innerText;
     let CallNumber=e.target.parentNode.parentNode.children[3].innerText;
 
-
+if (getCoinNumber<=0) {
+  alert('You do not have enough coin, you have to need 20 coin for call')
+  return
+}
     
       alert(title+' '+CallNumber
         
       )
-    let getCoin=getElement('coin-number') ;
-    let getCoinNumber=parseInt(getCoin.innerText) ;
+   
     let newCoinNumber=getCoinNumber-20;
     getCoin.innerText=newCoinNumber;
 // call history feature 
@@ -58,6 +62,11 @@ newElement.innerHTML = `
 
 document.getElementById('History-box').appendChild(newElement);
     }
-  
-  
+    
   })
+  // history clear feature 
+  let clearHistoryBox=getElement('clear-btn') ;
+  clearHistoryBox.addEventListener('click',function () {
+    document.getElementById('History-box').innerHTML='';
+  })
+  
