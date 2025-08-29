@@ -69,4 +69,16 @@ document.getElementById('History-box').appendChild(newElement);
   clearHistoryBox.addEventListener('click',function () {
     document.getElementById('History-box').innerHTML='';
   })
-  
+  // copy feature 
+    serviceCards.addEventListener('click',function (e) {
+      if (e.target.className.includes('copy-btn')) {
+
+  let CallNumber=e.target.parentNode.parentNode.children[3].innerText;
+ alert('Number has been copied'+' '+CallNumber)
+  let copyElement=getElement('copy-number') ;
+  let copyNumber=parseInt(copyElement.innerText) ;
+  copyNumber ++
+  copyElement.innerText=copyNumber;
+  // copy feature 
+}
+    })
