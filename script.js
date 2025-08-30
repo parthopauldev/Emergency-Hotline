@@ -4,17 +4,8 @@ function getElement(id) {
 }
 // loveCount add 
 let serviceCards=getElement('service-cards')
-serviceCards. addEventListener('click',function (e) {
-//   if (e.target.tagName ==='I') {
-// let loveCount =getElement('love-count') ;
-// let  loveCountNumber= parseInt(loveCount.innerText);
-// loveCountNumber++;
-// loveCount.innerText=loveCountNumber
 
 
-  
-//   } 
-  })
   // coin subtract feature 
   serviceCards.addEventListener('click',function (e) {
     // loveCount add 
@@ -79,6 +70,24 @@ document.getElementById('History-box').appendChild(newElement);
   let copyNumber=parseInt(copyElement.innerText) ;
   copyNumber ++
   copyElement.innerText=copyNumber;
-  // copy feature 
+  // copy feature
+  function copyTextToClipboard(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        console.log('Text copied to clipboard successfully!');
+      })
+      .catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+  } else {
+    console.warn('Clipboard API not available. Using fallback method if implemented.');
+    // Implement a fallback for older browsers if necessary
+  }
+}
+
+// Example usage:
+const textToCopy = CallNumber;
+copyTextToClipboard(textToCopy); 
 }
     })
